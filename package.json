@@ -1,0 +1,22 @@
+{
+  "name": "pgcexpress",
+  "version": "1.0.0",
+  "description": "An intro to Express and Node.js for the Improving BCS PGC class",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshrizzo/pgcexpress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshrizzo/pgcexpress/issues"
+  },
+  "homepage": "https://github.com/joshrizzo/pgcexpress#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
