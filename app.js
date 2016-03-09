@@ -1,10 +1,15 @@
-var express = require('express');
-var app = express();
+// Main application module
 
-app.get('/', function (request, response) {
-	response.send('Hello World!');
-})
+// Dependencies
+var express 	= require('express')
 
-app.listen(3000, function() {
-	console.log("I'm listening on port 3000!");
-});
+// Routing middleware
+var dataapi 	= require('/routes/api/data')
+var routes 		= require('/routes/index')
+
+// Express application
+var app 		= express()
+
+// Routes
+app.use('/', routes)
+app.use('/dataapi', dataapi)

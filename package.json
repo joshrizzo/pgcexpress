@@ -10,13 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/joshrizzo/pgcexpress.git"
   },
-  "author": "",
+  "author": "Joshua Rizzo",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/joshrizzo/pgcexpress/issues"
   },
   "homepage": "https://github.com/joshrizzo/pgcexpress#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4",
+    "http-status-codes": "^0"
   }
 }
