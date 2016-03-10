@@ -1,3 +1,5 @@
+// Routing middleware for database API
+
 // Dependencies
 var express 	= require('express')
 var httpCode 	= require('http-status-codes')
@@ -12,12 +14,12 @@ var encoding 	= 'utf8'
 var delimiter 	= ','
 
 // Routes
-router.route('/:item')
+router.route('/data')
 
 	// Put an item into the database.
-	.put((request, response) => {
+	.post((request, response) => {
 
-		var item = request.params.item;
+		var item = request.body.item;
 		item += delimiter
 
 		fs.appendFileSync(fileName, item, encoding, (error) => { 
@@ -28,13 +30,11 @@ router.route('/:item')
 				response.sendStatus(httpCode.OK)
 		})
 	})
-	
-	// Get an item from the database or get all items if none are specified.
+
+	// Get all items from the database.
 	.get((request, response) => {
 
-		var item 		= request.params.item;  //TODO: Filter on param
 		var fileText 	= fs.readFileSync('/filedb.txt', 'utf8')
-
 		response.send(httpCode.OK, fileText)
 	})
 

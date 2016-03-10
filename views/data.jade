@@ -1,0 +1,22 @@
+extends layout
+
+block scripts
+	script.
+		$('#addData').submit((event) => {
+			event.preventDefault();
+			var formData = $(this).serialize();
+			$.post('/api/data', formData, () => {
+				$.get('/api/data', (data) => {
+					$('results').text(data)
+				})
+			})
+		})
+
+block content
+
+	form#addData(method="put", action="/api/data")
+		input(type="text", name="item")
+		button(type="submit").
+			Add Data
+
+	pre#results= data

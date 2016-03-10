@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/joshrizzo/pgcexpress#readme",
   "dependencies": {
+    "body-parser": "^1.15.0",
     "express": "^4",
-    "http-status-codes": "^0"
+    "http-status-codes": "^1.0.6",
+    "jade": "^1.11.0"
   }
 }
