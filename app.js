@@ -1,16 +1,16 @@
 // Main application module
 
 // Dependencies
-var express 	= require('express')
+var express 	= require('express');
 var bodyParser 	= require('body-parser');
-var path 		= require('path')
+var path 		= require('path');
 
 // Routing middleware
-var dataapi 	= require('./routes/api/data')
-var routes 		= require('./routes/index')
+var dataapi 	= require('./routes/api/data');
+var routes 		= require('./routes/index');
 
 // Express application
-var app 		= express()
+var app 		= express();
 
 // Jade view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,5 +26,5 @@ app.listen(3000, () => {
 });
 
 // Routes
-app.use('/', routes)
-app.use('/api', dataapi)
+app.use('/', routes);
+app.use('/api', dataapi);

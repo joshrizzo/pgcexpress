@@ -2,21 +2,23 @@ extends layout
 
 block scripts
 	script.
-		$('#addData').submit((event) => {
-			event.preventDefault();
-			var formData = $(this).serialize();
+		$('#addData').submit((e) => {
+			e.preventDefault();
+			var formData = $('#addData').serialize();
+
 			$.post('/api/data', formData, () => {
-				$.get('/api/data', (data) => {
-					$('results').text(data)
+				$.get('/dataList', (view) => {
+					$('#results').html(view)
 				})
 			})
 		})
 
 block content
 
-	form#addData(method="put", action="/api/data")
+	form#addData
 		input(type="text", name="item")
 		button(type="submit").
 			Add Data
 
-	pre#results= data
+	div#results
+		include dataList
