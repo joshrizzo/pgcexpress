@@ -2,14 +2,12 @@ extends layout
 
 block scripts
 	script.
+		// Async submit override for the form
 		$('#addData').submit((e) => {
 			e.preventDefault();
 			var formData = $('#addData').serialize();
-
-			$.post('/api/data', formData, () => {
-				$.get('/dataList', (view) => {
-					$('#results').html(view)
-				})
+			$.post('/data', formData, (response) => {
+				$('#results').html(response);
 			})
 		})
 

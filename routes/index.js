@@ -1,26 +1,23 @@
 // Routing middleware for base URL
 
 // Dependencies
-var express 	= require('express');
-var db			= require('../services/dataLayer.js');
-
-// Router
-var router 		= express.Router();
+var express = require('express');
+var db = require('../services/dataLayer.js');
+var router = express.Router();					// Router
 
 // Hello World main page
 router.get('/', (request, response) => {
-	response.render('index', { title: 'Welcome to Express!', message: 'Hello, World!' });
+	response.render('index', { title: 'Jade View Engine', message: 'Hello, World!' });
 });
 
-// Page to interact with data API
-router.get('/data', (request, response) => {
-	var data = db.getAll();
-	response.render('data', { title: "Data API Demo", data: data });
+// Simple send response
+router.get('/basic', function (request, response) {
+	response.send('Hello, World!');
 });
 
-router.get('/dataList', (request, response) => {
-	var data = db.getAll();
-	response.render('datalist', { data: data });
+// Respond with a static file
+router.get('/statichtml', function (request, response) {
+	response.sendFile('helloworld.html', {root: './public/'});
 });
 
 // Export module
