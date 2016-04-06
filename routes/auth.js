@@ -22,7 +22,7 @@ router.get('/', (request, response) => {
 // Login page
 router.route('/login')
 	.get((request, response) => {
-		response.render('login', { title: 'Login to this site.', redirect: request.body.redirect });
+		response.render('login', { title: 'Login to this site.' });
 	})
 	.post((request, response) => {
 		if (users.login(request.body.username, request.body.password)) {
