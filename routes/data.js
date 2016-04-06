@@ -28,7 +28,7 @@ router.route('/')
 		}
 
 		var data = db.getAll();
-		response.render('datalist', { data: data });
+		response.status(responseCode).render('datalist', { data: data, message: message });
 	});
 
 // Export module

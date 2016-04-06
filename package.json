@@ -18,7 +18,9 @@
   "homepage": "https://github.com/joshrizzo/pgcexpress#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
     "express": "^4",
+    "express-session": "^1.13.0",
     "http-status-codes": "^1.0.6",
     "jade": "^1.11.0",
     "request": "^2.69.0"

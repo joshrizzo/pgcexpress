@@ -12,17 +12,24 @@
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <NodeExeArguments>--use-strict</NodeExeArguments>
+    <StartWebBrowser>True</StartWebBrowser>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Compile Include="routes\auth.js" />
     <Compile Include="routes\data.js" />
     <Compile Include="services\dataLayer.js" />
+    <Compile Include="services\users.js" />
     <Content Include="package.json" />
     <Content Include="public\helloworld.html" />
     <Content Include="README.md" />
     <Compile Include="app.js" />
     <Compile Include="routes\index.js" />
+    <Content Include="views\authError.jade" />
+    <Content Include="views\authenticated.jade" />
+    <Content Include="views\login.jade" />
     <Content Include="views\data.jade" />
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
