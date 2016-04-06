@@ -21,7 +21,10 @@
     <Compile Include="routes\auth.js" />
     <Compile Include="routes\data.js" />
     <Compile Include="services\dataLayer.js" />
-    <Compile Include="services\users.js" />
+    <Compile Include="spec\dataLayerSpec.js">
+      <SubType>Code</SubType>
+      <TestFramework>ExportRunner</TestFramework>
+    </Compile>
     <Content Include="package.json" />
     <Content Include="public\helloworld.html" />
     <Content Include="README.md" />
@@ -36,6 +39,7 @@
     <Content Include="views\dataList.jade" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="spec\" />
     <Folder Include="public\" />
     <Folder Include="services\" />
     <Folder Include="routes" />
