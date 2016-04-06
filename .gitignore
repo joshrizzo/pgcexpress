@@ -31,3 +31,8 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+
+# Visual Studio Junk
+.ntvs_analysis.dat
+PGCExpress.sdf
+obj
