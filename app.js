@@ -12,17 +12,8 @@ var dataroutes = require('./routes/data');
 var authroutes = require('./routes/auth');
 var pubDir = path.join(__dirname, 'public');	// Directory for publicly accessible files
 var viewEngine = 'jade';						// View Engine name
-var port = 1337;								// Basic Node.js port
-var expressport = OPENSHIFT_NODEJS_PORT || 1338;// Express port
-var expressip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'	// IP for app.
 var app = express();							// Express application
 var secret = 'd2f66f7a-0cde-4b52-be0a-6f254cefe976';	// Secret for signing cookies
-
-//// This is a basic Node.js setup, for reference...
-//http.createServer((request, response) => {
-//	response.writeHead(200, { 'Content-Type': 'text/plain' });
-//	response.end('Hello, World!');
-//}).listen(port);
 
 // Allow static files from /public
 app.use(express.static(pubDir));
@@ -42,12 +33,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routing middleware setup
-//app.use('/', routes);
+// app.use('/', routes);
 //app.use('/data', dataroutes);
 //app.use('/auth', authroutes);
 
-// Tells the app what port to run on
-app.listen(expressport, expressip, function () {
+// Tells the app what port and IP to run on
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3002);
+app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
+
+http.createServer(app).listen(app.get('port') ,app.get('ip'), function () {
 	console.log("Express app listening on port " + expressport);
 	console.log("Static files served on " + pubDir);
 	console.log("Using " + viewEngine + " view engine.");
