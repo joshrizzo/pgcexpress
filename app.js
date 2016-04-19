@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //app.use('/auth', authroutes);
 
 // Tells the app what port and IP to run on
-app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3002);
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080);
 app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
 
 app.listen(app.get('port'), app.get('ip'), function () {
