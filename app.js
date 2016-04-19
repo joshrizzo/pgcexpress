@@ -41,14 +41,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routing middleware setup
-app.use('/', routes);
-app.use('/data', dataroutes);
-app.use('/auth', authroutes);
+//app.use('/', routes);
+//app.use('/data', dataroutes);
+//app.use('/auth', authroutes);
 
 // Tells the app what port to run on
-app.listen(expressport, () => {
-	console.log(`Express app listening on port ${expressport}.`);
-	console.log(`Static files served on ${pubDir}.`);
-	console.log(`Using ${viewEngine} view engine.`);
-	console.log('Parsing JSON and URL Encoded HTTP bodies.');
+app.listen(expressport, function () {
+	console.log("Express app listening on port " + expressport);
+	console.log("Static files served on " + pubDir);
+	console.log("Using " + viewEngine + " view engine.");
+	console.log("Parsing JSON and URL Encoded HTTP bodies.");
 });
