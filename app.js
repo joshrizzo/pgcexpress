@@ -13,15 +13,15 @@ var authroutes = require('./routes/auth');
 var pubDir = path.join(__dirname, 'public');	// Directory for publicly accessible files
 var viewEngine = 'jade';						// View Engine name
 var port = 1337;								// Basic Node.js port
-var expressport = 1338;							// Express port
+var expressport = OPENSHIFT_NODEJS_PORT || 1338;// Express port
 var app = express();							// Express application
 var secret = 'd2f66f7a-0cde-4b52-be0a-6f254cefe976';	// Secret for signing cookies
 
-// This is a basic Node.js setup, for reference...
-http.createServer((request, response) => {
-	response.writeHead(200, { 'Content-Type': 'text/plain' });
-	response.end('Hello, World!');
-}).listen(port);
+//// This is a basic Node.js setup, for reference...
+//http.createServer((request, response) => {
+//	response.writeHead(200, { 'Content-Type': 'text/plain' });
+//	response.end('Hello, World!');
+//}).listen(port);
 
 // Allow static files from /public
 app.use(express.static(pubDir));
