@@ -14,6 +14,7 @@ var pubDir = path.join(__dirname, 'public');	// Directory for publicly accessibl
 var viewEngine = 'jade';						// View Engine name
 var port = 1337;								// Basic Node.js port
 var expressport = OPENSHIFT_NODEJS_PORT || 1338;// Express port
+var expressip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'	// IP for app.
 var app = express();							// Express application
 var secret = 'd2f66f7a-0cde-4b52-be0a-6f254cefe976';	// Secret for signing cookies
 
@@ -46,7 +47,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //app.use('/auth', authroutes);
 
 // Tells the app what port to run on
-app.listen(expressport, function () {
+app.listen(expressport, expressip, function () {
 	console.log("Express app listening on port " + expressport);
 	console.log("Static files served on " + pubDir);
 	console.log("Using " + viewEngine + " view engine.");
