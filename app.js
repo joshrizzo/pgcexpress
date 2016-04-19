@@ -1,5 +1,3 @@
-"use strict";
-
 // Main application module
 
 // Dependencies and declarations
@@ -43,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3002);
 app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
 
-http.createServer(app).listen(app.get('port'), app.get('ip'), () => {
+app.listen(app.get('port'), app.get('ip'), function () {
 	console.log("Express app listening on port " + app.get('port'));
 	console.log("Static files served on " + pubDir);
 	console.log("Using " + viewEngine + " view engine.");
