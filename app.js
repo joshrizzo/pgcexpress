@@ -1,3 +1,5 @@
+"use strict";
+
 // Main application module
 
 // Dependencies and declarations
@@ -33,7 +35,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routing middleware setup
-// app.use('/', routes);
+//app.use('/', routes);
 //app.use('/data', dataroutes);
 //app.use('/auth', authroutes);
 
